@@ -1,0 +1,6 @@
+pip
+flask
+flask_sqlalchemy
+PyMySQL==0.10.0
+redis==3.5.3
+rq==1.4.3
