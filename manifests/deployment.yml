@@ -1,21 +1,25 @@
-apiVersion : apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: victormagar06 
+  name: victormagar06-myapp
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: victormagar06
   template:
     metadata:
       labels:
-        app: victormagar06 
+        app: victormagar06
     spec:
       containers:
-        - name: victormagar06 
+        - name: healthcheck
           image: desafio06.azurecr.io/victormagar06
           env:
             - name: SQLALCHEMY_DATABASE_URI
               value: "mysql+pymysql://jaine:uis71VCal07@179.188.38.79:3306/jaine"
             - name: REDISTOGO_URL
               value: "redis://179.188.38.79:6379"
+
           ports:
           - containerPort: 5000
