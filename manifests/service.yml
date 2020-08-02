@@ -4,7 +4,6 @@ metadata:
   labels:
     app: victormagar06 
   name: victormagar06-myapp
-  namespace: default
 spec:
   ports:
     - port: 5000
