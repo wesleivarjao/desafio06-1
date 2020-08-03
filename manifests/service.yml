@@ -4,6 +4,7 @@ metadata:
   labels:
     app: victormagar06 
   name: victormagar06-myapp
+  namespace: desafio06
 spec:
   ports:
     - port: 5000
