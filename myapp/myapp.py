@@ -16,7 +16,7 @@ redis_url = environ.get('REDISTOGO_URL') # https://devcenter.heroku.com/articles
 # Desenvolvimento Hello World!
 @myapp.route('/')
 def hello_world():
-    return 'Bello World'
+    return 'Hello World'
 
 # Desenvolvimento consulta db
 def db_consult():
