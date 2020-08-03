@@ -82,8 +82,6 @@ stages:
 
 jobs: 
 - job: Build_Linux 
-  pool:  
-   vmImage: 'ubuntu-16.04'
   steps: 
     - template: templates/steps.yml
 - job: Build_Windows  
