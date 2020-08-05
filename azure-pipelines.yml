@@ -167,20 +167,17 @@ stages:
           if float(res.get('API').get('api')) == 1.0:
             print('OK - O retorno foi apresentado corretamente')
           else:
-            - task: KubernetesManifest@0
-                displayName: Deploy to the new namespace in the Kubernetes cluster
-                  inputs:
-                    action: deploy
-                    namespace: $(k8sNamespaceForPR)
-                    manifests: |
-                      $(Pipeline.Workspace)/manifests/deployment.yml
-                      $(Pipeline.Workspace)/manifests/service.yml
-                    imagePullSecrets: |
-                      $(imagePullSecret)
-                    containers: |
-                      $(containerRegistry)/$(imageRepository):$(tag)
-            
-                print('Rollback sendo efetuado')
+    - task: PythonScript@0
+      inputs:
+        scriptSource: inline
+        script: |
+          import requests
+          import sys
+          res = requests.get('http://191.235.114.87:5000/api/monitoring').json()
+          if float(res.get('API').get('api')) == 1.0:
+            print('OK - O retorno foi apresentado corretamente')
+          else:
+            print('Rollback sendo efetuado')
             
             sys.exit(4)
         displayName: Test Python
