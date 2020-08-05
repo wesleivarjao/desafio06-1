@@ -164,7 +164,7 @@ stages:
           import requests
           import sys
           res = requests.get('http://191.235.114.87:5000/api/monitoring').json()
-          if (res.get('API').get('status')) == 200:
+          if (res.get('API').get('api').get('status')) == 200:
             print('OK - O retorno foi apresentado corretamente')
           else:
             print('Rollback sendo efetuado')
