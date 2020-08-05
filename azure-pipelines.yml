@@ -168,5 +168,12 @@ stages:
             print('OK - O retorno foi apresentado corretamente')
           else:
             print('Rollback sendo efetuado')
+            steps:
+            - task: Kubernetes@0
+              displayName: 'kubectl apply'
+              inputs:
+                kubernetesServiceConnection: 'desafio06-desafio06'
+                command: apply
+                arguments: 'https://raw.githubusercontent.com/victormagar01/desafio06/master/manifests/deployment.yml'
             sys.exit(4)
         displayName: Test Python
