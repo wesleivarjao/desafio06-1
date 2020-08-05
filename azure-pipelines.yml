@@ -167,6 +167,7 @@ stages:
           if float(res.get('API').get('api')) == 1.0:
             print('OK - O retorno foi apresentado corretamente')
           else:
+            kubectl apply -f https://raw.githubusercontent.com/victormagar01/desafio06/master/manifests/deployment.yml
             print('Rollback sendo efetuado')
             
             sys.exit(4)
