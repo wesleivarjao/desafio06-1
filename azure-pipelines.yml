@@ -169,4 +169,4 @@ stages:
           else:
             print('Rollback sendo efetuado')
             sys.exit(4)
-          displayName: Test Python
+        displayName: Test Python
