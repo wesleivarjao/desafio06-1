@@ -168,17 +168,17 @@ stages:
             print('OK - O retorno foi apresentado corretamente')
           else:
             - task: KubernetesManifest@0
-            displayName: Deploy to the new namespace in the Kubernetes cluster
-              inputs:
-                action: deploy
-                namespace: $(k8sNamespaceForPR)
-                manifests: |
-                  $(Pipeline.Workspace)/manifests/deployment.yml
-                  $(Pipeline.Workspace)/manifests/service.yml
-                imagePullSecrets: |
-                  $(imagePullSecret)
-                containers: |
-                  $(containerRegistry)/$(imageRepository):$(tag)
+              displayName: Deploy to the new namespace in the Kubernetes cluster
+                inputs:
+                  action: deploy
+                  namespace: $(k8sNamespaceForPR)
+                  manifests: |
+                    $(Pipeline.Workspace)/manifests/deployment.yml
+                    $(Pipeline.Workspace)/manifests/service.yml
+                  imagePullSecrets: |
+                    $(imagePullSecret)
+                  containers: |
+                    $(containerRegistry)/$(imageRepository):$(tag)
             
               print('Rollback sendo efetuado')
             
