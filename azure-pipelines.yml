@@ -168,7 +168,6 @@ stages:
             print('OK - O retorno foi apresentado corretamente')
           else:
             - task: Kubernetes@0
-              displayName: 'kubectl apply'
               inputs:
                 kubernetesServiceConnection: 'desafio06-desafio06'
                 command: apply
