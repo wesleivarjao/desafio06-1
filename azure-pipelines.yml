@@ -163,8 +163,8 @@ stages:
         script: |
           import requests
           import sys
-          res = requests.get('http://40.124.104.53:5000/api').json()
-          if (res.get('Status')) == 200:
+          res = requests.get('http://191.235.114.87:5000/api/monitoring').json()
+          if (res.get('status')) == 200:
             print('OK - O retorno foi apresentado corretamente')
           else:
             print('Rollback sendo efetuado')
