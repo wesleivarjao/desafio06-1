@@ -167,19 +167,19 @@ stages:
           if float(res.get('API').get('api')) == 1.0:
             print('OK - O retorno foi apresentado corretamente')
           else:
-          - task: KubernetesManifest@0
-            displayName: Deploy to the new namespace in the Kubernetes cluster
-            inputs:
-              action: deploy
-              namespace: $(k8sNamespaceForPR)
-              manifests: |
-                $(Pipeline.Workspace)/manifests/deployment.yml
-              imagePullSecrets: |
-                $(imagePullSecret)
-              containers: |
-                $(containerRegistry)/$(imageRepository):$(tag)
+            - task: KubernetesManifest@0
+              displayName: Deploy to the new namespace in the Kubernetes cluster
+              inputs:
+                action: deploy
+                namespace: $(k8sNamespaceForPR)
+                manifests: |
+                  $(Pipeline.Workspace)/manifests/deployment.yml
+                imagePullSecrets: |
+                  $(imagePullSecret)
+                containers: |
+                  $(containerRegistry)/$(imageRepository):$(tag)
             
-            print('Rollback sendo efetuado')
+              print('Rollback sendo efetuado')
             
             sys.exit(4)
         displayName: Test Python
