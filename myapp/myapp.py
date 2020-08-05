@@ -50,7 +50,7 @@ def count_queue():
 def service_status():
     data_sheet = {}
     data_sheet['API'] = {}
-    data_sheet['API']['api'] = "1.2"
+    data_sheet['API']['api'] = "1.3"
     data_sheet['API']['dep'] = {}
     data_sheet['API']['dep']['db-sql'] = db_consult()
     data_sheet['API']['dep']['db-nosql'] = redis_status
