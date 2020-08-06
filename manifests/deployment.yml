@@ -4,6 +4,9 @@ metadata:
   name: myapptestdesafio06 
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: myapptestdesafio06
   template:
     metadata:
       labels:
