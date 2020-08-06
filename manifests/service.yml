@@ -1,10 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-    name: victormagardesafio06
+  labels:
+    app: victormagardesafio06  
+  name: victormagardesafio06 -myapp
+  namespace: desafio06
 spec:
-    type: LoadBalancer
-    ports:
-    - port: 5000 
-    selector:
-        app: victormagardesafio06
+  ports:
+    - port: 5000
+      targetPort: 5000
+      protocol: TCP
+  type: LoadBalancer
+  selector:
+    app: victormagardesafio06 
