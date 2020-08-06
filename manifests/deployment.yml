@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: healthcheck
-          image: desafio06.azurecr.io/victormagardesafio06
+          image: victormagardesafio06
           env:
             - name: SQLALCHEMY_DATABASE_URI
               value: "mysql+pymysql://jaine:uis71VCal07@179.188.38.79:3306/jaine"
