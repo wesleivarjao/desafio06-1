@@ -1,8 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: victormagar06-myapp 
+  name: victormagar06-myapp
 spec:
+  strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxUnavailable: 0
+        maxSurge: 1
   replicas: 1
   selector:
     matchLabels:
@@ -10,10 +15,10 @@ spec:
   template:
     metadata:
       labels:
-        app: victormagar06 
+        app: victormagar06
     spec:
       containers:
-        - name: victormagar06 
+        - name: healthcheck
           image: desafio06.azurecr.io/victormagar06
           env:
             - name: SQLALCHEMY_DATABASE_URI
